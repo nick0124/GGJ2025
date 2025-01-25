@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class User : MonoBehaviour
@@ -6,13 +7,19 @@ public class User : MonoBehaviour
     [SerializeField] public float _money = 100;
     [SerializeField] private float _moneyCoef = 1.1f;
 
+    public TMP_Text _moneyText;
+
     public void decreaseLife(){
         this._lifes -= 1;
         if(this._lifes == 0) 
             Debug.Log("Game Over");
+
+
     }
     public void increaseMoney(float bubbleSize){
         this._money *= _moneyCoef;
         Debug.Log("User Money: " + this._money + "$");
+
+        _moneyText.text = "User Money: " + this._money + "$";
     }
 }

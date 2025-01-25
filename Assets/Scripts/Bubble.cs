@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    public float _clickIncreaseScale = 0.5f;
+    private float _clickIncreaseScale = 0.5f;
     public float _baseScaleFactor = -0.0012f;
     public float _destroyIncreaseScale;
     public float _destroyDecreaseScale;
