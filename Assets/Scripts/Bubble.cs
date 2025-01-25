@@ -10,11 +10,18 @@ public class Bubble : MonoBehaviour
     public Vector2 _velocity;                                   // Скорость пузыря
     private SpriteRenderer _spriteRenderer;                     // Для изменения цвета
 
+    public MoneySpawner _moneySpawner;
+    public float _increaseScale = 0.001f;
+    public float _clickIncreaseScale = 0.1f;
+    public float _destroyScale = 1;
+    private Rigidbody2D _rb;
+    public Vector2 _velocity;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Получаем компонент SpriteRenderer для изменения цвета
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        _moneySpawner = FindAnyObjectByType<MoneySpawner>();
+
         AddForceAtRandomDirection();
 
         // Случайный размер для лопания
@@ -83,22 +90,8 @@ public class Bubble : MonoBehaviour
     // Увеличение при клике
     void OnMouseDown()
     {
-        // Если пузырь красный, он всегда растет
-        if (_spriteRenderer.color == Color.red)
-        {
-            transform.localScale += new Vector3(0.001f, 0.001f, 0.001f);  // Медленный рост
-        }
-        else
-        {
-            // Увеличиваем размер пузыря при клике
-            transform.localScale += new Vector3(_clickIncreaseScale, _clickIncreaseScale, _clickIncreaseScale);
-        }
-
-        // Если размер пузыря превысил лимит, лопаем пузырь
-        if (transform.localScale.x >= _destroyScale)
-        {
-            PopBubble();
-        }
+        transform.localScale += new Vector3(_clickIncreaseScale, _clickIncreaseScale, _clickIncreaseScale);
+        _moneySpawner.SpawnMoney(transform);
     }
 
     // Рандомный импульс
