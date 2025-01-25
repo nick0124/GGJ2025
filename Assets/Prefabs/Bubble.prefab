@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -266927059097552467}
   m_Layer: 0
   m_Name: Bubble
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   _increaseScale: 0.001
   _clickIncreaseScale: 0.1
   _destroyScale: 1
+  _velocity: {x: 0, y: 0}
 --- !u!50 &-266927059097552467
 Rigidbody2D:
   serializedVersion: 5
