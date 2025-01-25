@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bubble : MonoBehaviour
 {
 
+    public MoneySpawner _moneySpawner;
     public float _increaseScale = 0.001f;
     public float _clickIncreaseScale = 0.1f;
     public float _destroyScale = 1;
@@ -13,6 +14,8 @@ public class Bubble : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _moneySpawner = FindAnyObjectByType<MoneySpawner>();
+
         AddForceAtRandomDirection();
 
         _destroyScale = Random.Range(1f, 5f);
@@ -47,6 +50,7 @@ public class Bubble : MonoBehaviour
     void OnMouseDown()
     {
         transform.localScale += new Vector3(_clickIncreaseScale, _clickIncreaseScale, _clickIncreaseScale);
+        _moneySpawner.SpawnMoney(transform);
     }
 
     private void AddForceAtRandomDirection()
