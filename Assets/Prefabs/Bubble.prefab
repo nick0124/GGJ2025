@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2400f34ba50e44949afa1dfbaec58398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increaseScale: 0.001
+  _baseIncreaseScale: 0.001
   _clickIncreaseScale: 0.1
   _destroyScale: 1
   _velocity: {x: 0, y: 0}
