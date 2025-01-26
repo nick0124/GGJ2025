@@ -1,18 +1,17 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public GameObject[] _lives;
+    public TMP_Text _score;
 
     public int _sceneNumber;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            _lives[i].SetActive(true);
-        }
+        if(_score != null)
+            _score.text = PlayerPrefs.GetInt("BestScore", 0).ToString() + "$";
     }
 
     // Update is called once per frame
